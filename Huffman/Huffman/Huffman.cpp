@@ -7,7 +7,7 @@
 // 4. String Nulls
 // 5. Pointers
 // 6. Iterators
-
+//
 #include "stdafx.h"
 #include "iostream"
 #include "string"
@@ -24,9 +24,15 @@ struct mNode {
 	mNode* right;
 
 	mNode(char ch, int val) {
+		cout << "construct" << endl;
 		left = right = NULL;
 		this->val = val;
 		this->ch = ch;
+	}
+	~mNode() {
+		cout << "Destruct" << endl;
+		delete left;
+		delete right;
 	}
 };
 
@@ -140,6 +146,7 @@ int main()
 
 	// Generate Codes
 	cout << "Done";
+	
 	return 0;
 }
 
